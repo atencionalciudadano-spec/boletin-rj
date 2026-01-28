@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boletín Digital - Rodolfo José Senado</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>Propuestas - Senado 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rojo-principal: #D32F2F;
-            --rojo-oscuro: #B71C1C;
-            --azul-profundo: #0D1B2A;
-            --azul-medio: #1B263B;
-            --dorado: #FFB300;
+            --rojo-senado: #C41E3A;
+            --azul-senado: #003366;
+            --dorado: #D4AF37;
+            --gris-oscuro: #2C2C2C;
+            --gris-claro: #F5F5F5;
             --blanco: #FFFFFF;
-            --gris-claro: #FAFAFA;
-            --gris-medio: #757575;
         }
 
         * {
@@ -24,59 +22,69 @@
         }
 
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             background: var(--gris-claro);
-            color: var(--azul-profundo);
+            color: var(--gris-oscuro);
         }
 
-        .header-hero {
-            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 50%, var(--rojo-principal) 100%);
-            color: var(--blanco);
-            padding: 60px 20px;
-            text-align: center;
+        /* Header con efecto bandera */
+        .header-principal {
+            background: linear-gradient(180deg, var(--azul-senado) 0%, #004488 100%);
+            padding: 0;
             position: relative;
             overflow: hidden;
         }
 
-        .header-hero::before {
+        .header-principal::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(255,255,255,0.03) 50px,
-                    rgba(255,255,255,0.03) 100px
-                );
-            pointer-events: none;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                var(--rojo-senado) 0%, 
+                var(--rojo-senado) 33%, 
+                var(--dorado) 33%, 
+                var(--dorado) 66%, 
+                var(--azul-senado) 66%, 
+                var(--azul-senado) 100%);
         }
 
-        .header-content {
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, rgba(0,51,102,0.95) 0%, rgba(196,30,58,0.9) 100%);
             position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
-        .logo-grande {
-            font-family: 'Merriweather', serif;
-            font-size: 4rem;
-            font-weight: 900;
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--dorado);
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .titulo-principal {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--blanco);
             letter-spacing: 3px;
+            text-transform: uppercase;
             margin-bottom: 15px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            animation: fadeInDown 0.8s ease-out;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+            animation: slideDown 0.8s ease-out;
         }
 
-        @keyframes fadeInDown {
+        @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-40px);
             }
             to {
                 opacity: 1;
@@ -85,206 +93,276 @@
         }
 
         .subtitulo-hero {
-            font-size: 1.3rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            opacity: 0.95;
-            animation: fadeInDown 0.8s ease-out 0.2s both;
-        }
-
-        .fecha-hero {
-            font-size: 1.1rem;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            display: inline-block;
-            animation: fadeInDown 0.8s ease-out 0.4s both;
-        }
-
-        .btn-actualizar {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--rojo-principal);
-            color: var(--blanco);
-            border: none;
-            padding: 18px 28px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-actualizar:hover {
-            background: var(--rojo-oscuro);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(211, 47, 47, 0.5);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: -40px auto 60px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .contador-noticias {
-            background: var(--blanco);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
+            font-size: 1.4rem;
+            color: var(--dorado);
+            font-weight: 600;
+            letter-spacing: 2px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            animation: slideDown 0.8s ease-out 0.2s both;
         }
 
-        .contador-noticias span {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--rojo-principal);
-        }
-
-        .noticias-grid {
-            display: grid;
-            gap: 30px;
-        }
-
-        .noticia-card {
+        /* Tabs/Pestañas */
+        .tabs-container {
             background: var(--blanco);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tabs {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .tab {
+            flex: 1;
+            max-width: 400px;
+            padding: 25px 40px;
+            background: var(--gris-claro);
+            border: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-left: 6px solid var(--rojo-principal);
+            color: var(--gris-oscuro);
+            border-bottom: 4px solid transparent;
+        }
+
+        .tab:hover {
+            background: #E8E8E8;
+            transform: translateY(-3px);
+        }
+
+        .tab.activo {
+            background: var(--blanco);
+            color: var(--rojo-senado);
+            border-bottom: 4px solid var(--rojo-senado);
+            box-shadow: 0 -3px 15px rgba(196, 30, 58, 0.2);
+        }
+
+        .tab.tab-rodolfo.activo {
+            border-bottom-color: var(--rojo-senado);
+        }
+
+        .tab.tab-camara.activo {
+            border-bottom-color: var(--azul-senado);
+            color: var(--azul-senado);
+        }
+
+        /* Contenido */
+        .contenido-tabs {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .tab-content.activo {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header de sección */
+        .seccion-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(196,30,58,0.08) 0%, rgba(0,51,102,0.08) 100%);
+            border-radius: 20px;
+            border-left: 6px solid var(--rojo-senado);
+        }
+
+        .seccion-header.camara {
+            background: linear-gradient(135deg, rgba(0,51,102,0.08) 0%, rgba(196,30,58,0.08) 100%);
+            border-left-color: var(--azul-senado);
+        }
+
+        .seccion-titulo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--rojo-senado);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .seccion-titulo.camara {
+            color: var(--azul-senado);
+        }
+
+        .seccion-descripcion {
+            font-size: 1.2rem;
+            color: var(--gris-oscuro);
+            line-height: 1.8;
+        }
+
+        /* Grid de propuestas */
+        .propuestas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .propuesta-card {
+            background: var(--blanco);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid var(--rojo-senado);
             animation: aparecerCard 0.6s ease-out both;
+        }
+
+        .propuesta-card.camara {
+            border-top-color: var(--azul-senado);
         }
 
         @keyframes aparecerCard {
             from {
                 opacity: 0;
-                transform: translateY(40px) scale(0.95);
+                transform: scale(0.9) translateY(30px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: scale(1) translateY(0);
             }
         }
 
-        .noticia-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        .propuesta-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
         }
 
-        .noticia-header {
-            padding: 30px 30px 20px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-            border-bottom: 3px solid var(--gris-claro);
-        }
-
-        .noticia-meta {
+        .card-imagen {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--rojo-senado) 0%, var(--azul-senado) 100%);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 10px;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .noticia-tipo {
+        .card-imagen.camara {
+            background: linear-gradient(135deg, var(--azul-senado) 0%, var(--rojo-senado) 100%);
+        }
+
+        .card-imagen::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255,255,255,0.05) 20px,
+                    rgba(255,255,255,0.05) 40px
+                );
+        }
+
+        .card-contenido {
+            padding: 30px;
+        }
+
+        .card-tipo {
+            display: inline-block;
             background: var(--dorado);
-            color: var(--azul-profundo);
+            color: var(--gris-oscuro);
             padding: 8px 20px;
             border-radius: 25px;
-            font-weight: 900;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 3px 10px rgba(255, 179, 0, 0.3);
-        }
-
-        .noticia-fecha {
-            color: var(--gris-medio);
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .noticia-titulo {
-            font-family: 'Merriweather', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--azul-profundo);
-            line-height: 1.3;
             margin-bottom: 15px;
         }
 
-        .noticia-body {
-            padding: 25px 30px;
+        .card-titulo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
-        .noticia-descripcion {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #333;
+        .card-descripcion {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
             margin-bottom: 25px;
         }
 
-        .noticia-footer {
+        .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 30px;
-            background: var(--gris-claro);
-            border-top: 2px solid #eee;
+            padding-top: 20px;
+            border-top: 2px solid var(--gris-claro);
             flex-wrap: wrap;
             gap: 15px;
         }
 
-        .publico-badge {
-            background: var(--azul-profundo);
+        .btn-ver {
+            background: var(--rojo-senado);
             color: var(--blanco);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-ver-contenido {
-            background: var(--rojo-principal);
-            color: var(--blanco);
-            border: none;
             padding: 12px 30px;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: 700;
             font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .btn-ver-contenido:hover {
-            background: var(--rojo-oscuro);
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+        .btn-ver.camara {
+            background: var(--azul-senado);
         }
 
+        .btn-ver:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
+        }
+
+        .btn-ver.camara:hover {
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.4);
+        }
+
+        .fecha-badge {
+            color: var(--gris-oscuro);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Mensaje vacío */
         .mensaje-vacio {
             text-align: center;
             padding: 80px 20px;
@@ -294,48 +372,48 @@
         }
 
         .mensaje-vacio h3 {
-            font-family: 'Merriweather', serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 2rem;
-            color: var(--gris-medio);
+            color: var(--gris-oscuro);
             margin-bottom: 15px;
         }
 
-        .mensaje-error {
-            background: #ffebee;
-            color: #c62828;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0;
-            text-align: center;
-            border: 2px solid #ef5350;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .logo-grande {
-                font-size: 2.5rem;
+            .titulo-principal {
+                font-size: 2.2rem;
             }
 
-            .subtitulo-hero {
-                font-size: 1rem;
+            .tabs {
+                flex-direction: column;
             }
 
-            .noticia-titulo {
-                font-size: 1.5rem;
+            .tab {
+                max-width: 100%;
+                border-bottom: 2px solid #ddd;
+                border-left: 0;
             }
 
-            .btn-actualizar {
-                bottom: 20px;
-                right: 20px;
-                padding: 15px 20px;
-                font-size: 0.9rem;
+            .tab.activo {
+                border-bottom: 2px solid var(--rojo-senado);
+                border-left: 6px solid var(--rojo-senado);
             }
 
-            .noticia-footer {
+            .tab.tab-camara.activo {
+                border-left-color: var(--azul-senado);
+                border-bottom-color: var(--azul-senado);
+            }
+
+            .propuestas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-footer {
                 flex-direction: column;
                 align-items: stretch;
             }
 
-            .btn-ver-contenido {
+            .btn-ver {
                 width: 100%;
                 text-align: center;
             }
@@ -343,127 +421,167 @@
     </style>
 </head>
 <body>
-    <header class="header-hero">
-        <div class="header-content">
-            <h1 class="logo-grande">RODOLFO JOSÉ</h1>
-            <p class="subtitulo-hero">Candidato al Senado de la República</p>
-            <div class="fecha-hero" id="fechaActual"></div>
+    <!-- Header -->
+    <header class="header-principal">
+        <div class="hero-section">
+            <h1 class="titulo-principal">Senado 2026</h1>
+            <p class="subtitulo-hero">Propuestas para Santander</p>
         </div>
     </header>
 
-    <button class="btn-actualizar" onclick="cargarNoticias()">
-        🔄 Actualizar
-    </button>
+    <!-- Tabs -->
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab tab-rodolfo activo" onclick="cambiarTab('rodolfo')">
+                🎯 Rodolfo José - Senado
+            </button>
+            <button class="tab tab-camara" onclick="cambiarTab('camara')">
+                🏛️ Cámara de Representantes
+            </button>
+        </div>
+    </div>
 
-    <div class="container">
-        <div class="contador-noticias" id="contadorNoticias" style="display: none;">
-            <span id="numeroNoticias">0</span> noticias activas
+    <!-- Contenido -->
+    <div class="contenido-tabs">
+        <!-- Tab Rodolfo José -->
+        <div id="tab-rodolfo" class="tab-content activo">
+            <div class="seccion-header">
+                <h2 class="seccion-titulo">Rodolfo José al Senado</h2>
+                <p class="seccion-descripcion">
+                    Conoce las propuestas y el plan de trabajo de Rodolfo José como candidato al Senado de la República por Santander.
+                </p>
+            </div>
+
+            <div class="propuestas-grid" id="grid-rodolfo">
+                <!-- Las propuestas se cargarán aquí -->
+            </div>
         </div>
 
-        <div class="noticias-grid" id="noticiasGrid"></div>
+        <!-- Tab Cámara -->
+        <div id="tab-camara" class="tab-content">
+            <div class="seccion-header camara">
+                <h2 class="seccion-titulo camara">Cámara de Representantes</h2>
+                <p class="seccion-descripcion">
+                    Propuestas y contenido de nuestros candidatos a la Cámara de Representantes.
+                </p>
+            </div>
+
+            <div class="propuestas-grid" id="grid-camara">
+                <!-- Las propuestas se cargarán aquí -->
+            </div>
+        </div>
     </div>
 
     <script>
-        function mostrarFechaActual() {
-            const hoy = new Date();
-            const opciones = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            };
-            const fechaTexto = hoy.toLocaleDateString('es-ES', opciones);
-            document.getElementById('fechaActual').textContent = 
-                fechaTexto.charAt(0).toUpperCase() + fechaTexto.slice(1);
+        function cambiarTab(tab) {
+            // Cambiar tabs activos
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('activo'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('activo'));
+
+            if (tab === 'rodolfo') {
+                document.querySelector('.tab-rodolfo').classList.add('activo');
+                document.getElementById('tab-rodolfo').classList.add('activo');
+            } else {
+                document.querySelector('.tab-camara').classList.add('activo');
+                document.getElementById('tab-camara').classList.add('activo');
+            }
+
+            // Scroll suave al inicio del contenido
+            window.scrollTo({ top: 300, behavior: 'smooth' });
         }
 
         function formatearFecha(fechaStr) {
             try {
                 const [año, mes, dia] = fechaStr.split('-');
                 const fecha = new Date(año, mes - 1, dia);
-                const opciones = { 
-                    weekday: 'short',
-                    year: 'numeric', 
+                return fecha.toLocaleDateString('es-ES', { 
                     month: 'short', 
                     day: 'numeric' 
-                };
-                return fecha.toLocaleDateString('es-ES', opciones);
+                });
             } catch (e) {
                 return fechaStr;
             }
         }
 
-        function cargarNoticias() {
-            const grid = document.getElementById('noticiasGrid');
-            const contador = document.getElementById('contadorNoticias');
-
+        function cargarPropuestas() {
             fetch('noticias.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('No se pudo cargar el archivo noticias.json');
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
-                    const noticias = data.noticias.filter(n => n.estado === 'ACTIVO');
+                    const propuestas = data.noticias.filter(n => n.estado === 'ACTIVO');
+                    
+                    // Separar por categoría
+                    const rodolfo = propuestas.filter(p => p.categoria === 'rodolfo' || !p.categoria);
+                    const camara = propuestas.filter(p => p.categoria === 'camara');
 
-                    if (noticias.length === 0) {
-                        grid.innerHTML = `
+                    // Renderizar Rodolfo José
+                    const gridRodolfo = document.getElementById('grid-rodolfo');
+                    if (rodolfo.length === 0) {
+                        gridRodolfo.innerHTML = `
                             <div class="mensaje-vacio">
-                                <h3>📭 No hay noticias activas</h3>
-                                <p>Las noticias aparecerán aquí cuando se agreguen al archivo noticias.json</p>
+                                <h3>📭 Próximamente</h3>
+                                <p>Las propuestas de Rodolfo José se publicarán aquí</p>
                             </div>
                         `;
-                        contador.style.display = 'none';
                     } else {
-                        document.getElementById('numeroNoticias').textContent = noticias.length;
-                        contador.style.display = 'block';
-
-                        grid.innerHTML = noticias.map((noticia, index) => {
-                            const tieneLink = noticia.link && noticia.link.trim() !== '';
-                            
-                            return `
-                                <div class="noticia-card" style="animation-delay: ${index * 0.1}s">
-                                    <div class="noticia-header">
-                                        <div class="noticia-meta">
-                                            <span class="noticia-tipo">${noticia.tipo}</span>
-                                            <span class="noticia-fecha">
-                                                📅 ${formatearFecha(noticia.fecha)}
-                                            </span>
-                                        </div>
-                                        <h2 class="noticia-titulo">${noticia.titulo}</h2>
-                                    </div>
-                                    <div class="noticia-body">
-                                        <p class="noticia-descripcion">${noticia.descripcion}</p>
-                                    </div>
-                                    <div class="noticia-footer">
-                                        <span class="publico-badge">
-                                            👥 ${noticia.publico}
-                                        </span>
-                                        ${tieneLink ? `
-                                            <a href="${noticia.link}" target="_blank" class="btn-ver-contenido">
-                                                Ver Contenido →
-                                            </a>
-                                        ` : ''}
+                        gridRodolfo.innerHTML = rodolfo.map((p, index) => `
+                            <div class="propuesta-card" style="animation-delay: ${index * 0.1}s">
+                                <div class="card-imagen">
+                                    ${p.tipo.split(' ')[0]}
+                                </div>
+                                <div class="card-contenido">
+                                    <span class="card-tipo">${p.tipo}</span>
+                                    <h3 class="card-titulo">${p.titulo}</h3>
+                                    <p class="card-descripcion">${p.descripcion}</p>
+                                    <div class="card-footer">
+                                        <span class="fecha-badge">📅 ${formatearFecha(p.fecha)}</span>
+                                        ${p.link ? `<a href="${p.link}" target="_blank" class="btn-ver">Ver más →</a>` : ''}
                                     </div>
                                 </div>
-                            `;
-                        }).join('');
+                            </div>
+                        `).join('');
+                    }
+
+                    // Renderizar Cámara
+                    const gridCamara = document.getElementById('grid-camara');
+                    if (camara.length === 0) {
+                        gridCamara.innerHTML = `
+                            <div class="mensaje-vacio">
+                                <h3>📭 Próximamente</h3>
+                                <p>Las propuestas de Cámara se publicarán aquí</p>
+                            </div>
+                        `;
+                    } else {
+                        gridCamara.innerHTML = camara.map((p, index) => `
+                            <div class="propuesta-card camara" style="animation-delay: ${index * 0.1}s">
+                                <div class="card-imagen camara">
+                                    ${p.tipo.split(' ')[0]}
+                                </div>
+                                <div class="card-contenido">
+                                    <span class="card-tipo">${p.tipo}</span>
+                                    <h3 class="card-titulo">${p.titulo}</h3>
+                                    <p class="card-descripcion">${p.descripcion}</p>
+                                    <div class="card-footer">
+                                        <span class="fecha-badge">📅 ${formatearFecha(p.fecha)}</span>
+                                        ${p.link ? `<a href="${p.link}" target="_blank" class="btn-ver camara">Ver más →</a>` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('');
                     }
                 })
                 .catch(error => {
-                    grid.innerHTML = `
-                        <div class="mensaje-error">
-                            <h3>⚠️ Archivo noticias.json no encontrado</h3>
-                            <p>Asegúrate de que el archivo <strong>noticias.json</strong> esté en la misma carpeta que este HTML.</p>
-                            <p style="margin-top: 15px;">Error: ${error.message}</p>
+                    console.error('Error:', error);
+                    document.getElementById('grid-rodolfo').innerHTML = `
+                        <div class="mensaje-vacio">
+                            <h3>⚠️ Error al cargar</h3>
+                            <p>No se pudo cargar el archivo de propuestas</p>
                         </div>
                     `;
                 });
         }
 
-        mostrarFechaActual();
-        cargarNoticias();
+        // Cargar al inicio
+        cargarPropuestas();
     </script>
 </body>
 </html>
