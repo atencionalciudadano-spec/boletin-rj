@@ -1,0 +1,64 @@
+{
+  "noticias": [
+    {
+      "fecha": "2026-01-27",
+      "tipo": "📹 Video",
+      "titulo": "Plan de Salud Rural Santander",
+      "descripcion": "Propuesta integral para llevar servicios médicos de calidad a las zonas rurales del departamento. Incluye brigadas móviles y telemedicina.",
+      "link": "https://drive.google.com/drive/folders/1jdvpkGXOduMIiSa8t9F7fxyw6W-cbAMl",
+      "publico": "Todos",
+      "estado": "ACTIVO",
+      "categoria": "rodolfo"
+    },
+    {
+      "fecha": "2026-01-27",
+      "tipo": "📰 Propuesta",
+      "titulo": "Apoyo al Sector Cafetero",
+      "descripcion": "Plan de fortalecimiento para pequeños productores cafeteros con financiamiento y tecnificación del cultivo.",
+      "link": "",
+      "publico": "Líderes",
+      "estado": "ACTIVO",
+      "categoria": "rodolfo"
+    },
+    {
+      "fecha": "2026-01-26",
+      "tipo": "🎙️ Podcast",
+      "titulo": "Educación Superior Accesible",
+      "descripcion": "Conversatorio sobre becas y apoyo a estudiantes universitarios de bajos recursos en Santander.",
+      "link": "",
+      "publico": "Call Center",
+      "estado": "ACTIVO",
+      "categoria": "rodolfo"
+    },
+    {
+      "fecha": "2026-01-27",
+      "tipo": "📢 Anuncio",
+      "titulo": "Infraestructura Vial Regional",
+      "descripcion": "Propuesta para mejorar la conectividad vial entre municipios del departamento y fortalecer el comercio local.",
+      "link": "",
+      "publico": "Todos",
+      "estado": "ACTIVO",
+      "categoria": "camara"
+    },
+    {
+      "fecha": "2026-01-26",
+      "tipo": "📹 Video",
+      "titulo": "Seguridad Ciudadana",
+      "descripcion": "Plan integral de seguridad para zonas urbanas y rurales con enfoque en prevención y tecnología.",
+      "link": "",
+      "publico": "Líderes",
+      "estado": "ACTIVO",
+      "categoria": "camara"
+    },
+    {
+      "fecha": "2026-01-25",
+      "tipo": "🎯 Evento",
+      "titulo": "Encuentro con Comerciantes",
+      "descripcion": "Este sábado nos reunimos con comerciantes del centro para escuchar sus propuestas y necesidades.",
+      "link": "",
+      "publico": "Volanteo, Líderes",
+      "estado": "ACTIVO",
+      "categoria": "camara"
+    }
+  ]
+}
