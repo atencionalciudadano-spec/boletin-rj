@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletín Digital - Rodolfo José Senado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo-principal: #D32F2F;
+            --rojo-oscuro: #B71C1C;
+            --azul-profundo: #0D1B2A;
+            --azul-medio: #1B263B;
+            --dorado: #FFB300;
+            --blanco: #FFFFFF;
+            --gris-claro: #FAFAFA;
+            --gris-medio: #757575;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--gris-claro);
+            color: var(--azul-profundo);
+        }
+
+        .header-hero {
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 50%, var(--rojo-principal) 100%);
+            color: var(--blanco);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(255,255,255,0.03) 50px,
+                    rgba(255,255,255,0.03) 100px
+                );
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo-grande {
+            font-family: 'Merriweather', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitulo-hero {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+        }
+
+        .fecha-hero {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            display: inline-block;
+            animation: fadeInDown 0.8s ease-out 0.4s both;
+        }
+
+        .btn-actualizar {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--rojo-principal);
+            color: var(--blanco);
+            border: none;
+            padding: 18px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-actualizar:hover {
+            background: var(--rojo-oscuro);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(211, 47, 47, 0.5);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contador-noticias {
+            background: var(--blanco);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .contador-noticias span {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--rojo-principal);
+        }
+
+        .noticias-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .noticia-card {
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 6px solid var(--rojo-principal);
+            animation: aparecerCard 0.6s ease-out both;
+        }
+
+        @keyframes aparecerCard {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .noticia-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .noticia-header {
+            padding: 30px 30px 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            border-bottom: 3px solid var(--gris-claro);
+        }
+
+        .noticia-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .noticia-tipo {
+            background: var(--dorado);
+            color: var(--azul-profundo);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 900;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 3px 10px rgba(255, 179, 0, 0.3);
+        }
+
+        .noticia-fecha {
+            color: var(--gris-medio);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .noticia-titulo {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .noticia-body {
+            padding: 25px 30px;
+        }
+
+        .noticia-descripcion {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .noticia-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            background: var(--gris-claro);
+            border-top: 2px solid #eee;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .publico-badge {
+            background: var(--azul-profundo);
+            color: var(--blanco);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-ver-contenido {
+            background: var(--rojo-principal);
+            color: var(--blanco);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-ver-contenido:hover {
+            background: var(--rojo-oscuro);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+        }
+
+        .mensaje-vacio {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--blanco);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .mensaje-vacio h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: var(--gris-medio);
+            margin-bottom: 15px;
+        }
+
+        .mensaje-error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+            border: 2px solid #ef5350;
+        }
+
+        @media (max-width: 768px) {
+            .logo-grande {
+                font-size: 2.5rem;
+            }
+
+            .subtitulo-hero {
+                font-size: 1rem;
+            }
+
+            .noticia-titulo {
+                font-size: 1.5rem;
+            }
+
+            .btn-actualizar {
+                bottom: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                font-size: 0.9rem;
+            }
+
+            .noticia-footer {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-ver-contenido {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-hero">
+        <div class="header-content">
+            <h1 class="logo-grande">RODOLFO JOSÉ</h1>
+            <p class="subtitulo-hero">Candidato al Senado de la República</p>
+            <div class="fecha-hero" id="fechaActual"></div>
+        </div>
+    </header>
+
+    <button class="btn-actualizar" onclick="cargarNoticias()">
+        🔄 Actualizar
+    </button>
+
+    <div class="container">
+        <div class="contador-noticias" id="contadorNoticias" style="display: none;">
+            <span id="numeroNoticias">0</span> noticias activas
+        </div>
+
+        <div class="noticias-grid" id="noticiasGrid"></div>
+    </div>
+
+    <script>
+        function mostrarFechaActual() {
+            const hoy = new Date();
+            const opciones = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const fechaTexto = hoy.toLocaleDateString('es-ES', opciones);
+            document.getElementById('fechaActual').textContent = 
+                fechaTexto.charAt(0).toUpperCase() + fechaTexto.slice(1);
+        }
+
+        function formatearFecha(fechaStr) {
+            try {
+                const [año, mes, dia] = fechaStr.split('-');
+                const fecha = new Date(año, mes - 1, dia);
+                const opciones = { 
+                    weekday: 'short',
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric' 
+                };
+                return fecha.toLocaleDateString('es-ES', opciones);
+            } catch (e) {
+                return fechaStr;
+            }
+        }
+
+        function cargarNoticias() {
+            const grid = document.getElementById('noticiasGrid');
+            const contador = document.getElementById('contadorNoticias');
+
+            fetch('noticias.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No se pudo cargar el archivo noticias.json');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const noticias = data.noticias.filter(n => n.estado === 'ACTIVO');
+
+                    if (noticias.length === 0) {
+                        grid.innerHTML = `
+                            <div class="mensaje-vacio">
+                                <h3>📭 No hay noticias activas</h3>
+                                <p>Las noticias aparecerán aquí cuando se agreguen al archivo noticias.json</p>
+                            </div>
+                        `;
+                        contador.style.display = 'none';
+                    } else {
+                        document.getElementById('numeroNoticias').textContent = noticias.length;
+                        contador.style.display = 'block';
+
+                        grid.innerHTML = noticias.map((noticia, index) => {
+                            const tieneLink = noticia.link && noticia.link.trim() !== '';
+                            
+                            return `
+                                <div class="noticia-card" style="animation-delay: ${index * 0.1}s">
+                                    <div class="noticia-header">
+                                        <div class="noticia-meta">
+                                            <span class="noticia-tipo">${noticia.tipo}</span>
+                                            <span class="noticia-fecha">
+                                                📅 ${formatearFecha(noticia.fecha)}
+                                            </span>
+                                        </div>
+                                        <h2 class="noticia-titulo">${noticia.titulo}</h2>
+                                    </div>
+                                    <div class="noticia-body">
+                                        <p class="noticia-descripcion">${noticia.descripcion}</p>
+                                    </div>
+                                    <div class="noticia-footer">
+                                        <span class="publico-badge">
+                                            👥 ${noticia.publico}
+                                        </span>
+                                        ${tieneLink ? `
+                                            <a href="${noticia.link}" target="_blank" class="btn-ver-contenido">
+                                                Ver Contenido →
+                                            </a>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    }
+                })
+                .catch(error => {
+                    grid.innerHTML = `
+                        <div class="mensaje-error">
+                            <h3>⚠️ Archivo noticias.json no encontrado</h3>
+                            <p>Asegúrate de que el archivo <strong>noticias.json</strong> esté en la misma carpeta que este HTML.</p>
+                            <p style="margin-top: 15px;">Error: ${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+
+        mostrarFechaActual();
+        cargarNoticias();
+    </script>
+</body>
+</html>
